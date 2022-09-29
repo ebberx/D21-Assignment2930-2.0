@@ -18,7 +18,7 @@ namespace TextClassification
             // initiate the learning process
 
             nb.Train();
-
+            
             // getting the (whole) knowledge found in ClassA and in ClassB
             Knowledge k = nb.GetKnowledge();
 
@@ -34,6 +34,7 @@ namespace TextClassification
             {
                 Console.WriteLine(entry);
             }
+            
             
             Console.Read();
         }
