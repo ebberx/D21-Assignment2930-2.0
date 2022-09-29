@@ -38,7 +38,7 @@ namespace Test
             string actual = Tokenization.RemovePunctuation(teststring);
             string expected = "stores";
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreNotEqual(expected, actual);
         }
     }
 }

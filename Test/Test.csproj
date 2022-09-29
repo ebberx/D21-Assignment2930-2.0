@@ -57,9 +57,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TextClassification\TextClassification.csproj">
-      <Project>{4e9b36a0-7130-430f-b907-25eb584f3db7}</Project>
-      <Name>TextClassification</Name>
+    <ProjectReference Include="..\TextClassificationGUI\TextClassificationGUI.csproj">
+      <Project>{e8697542-c89f-4846-a78d-678a10a0a4d3}</Project>
+      <Name>TextClassificationGUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -3,10 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TextClassificationGUI"
+        xmlns:local="clr-namespace:TextClassificationGUI" xmlns:_1_controller="clr-namespace:TextClassificationGUI._1_Controller"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TabControl>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="Train" HorizontalAlignment="Left" Margin="25,33,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+                    <TextBox x:Name="trainTimeTextBox" Text="Time: " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="119,35,555,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="7*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="ClassA" HorizontalAlignment="Center"></TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="ClassB" HorizontalAlignment="Center"></TextBlock>
 
+                    <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=ObservableA}" d:DataContext="{d:DesignInstance}"></ListBox>
+                    <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=ObservableB}" d:DataContext="{d:DesignInstance}"></ListBox>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

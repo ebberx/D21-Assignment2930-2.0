@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -49,11 +49,11 @@ namespace Test
             string folderA = "ClassA";
             string fileType = "txt";
             List<string> expected = new List<string>();
-            string Path = System.IO.Path.GetFullPath(@"..\..\..\res\");
+            string Path = System.IO.Path.GetFullPath(@"..\..\..\..\res\");
 
-            expected.Add(Path + folderA+"\\bbcsportsfootball."+fileType);
-            expected.Add(Path + folderA+"\\dailymirrornfl."+fileType);
-            expected.Add(Path + folderA+"\\sunsportsboxing."+fileType);
+            expected.Add(Path + folderA + "\\bbcsportsfootball." + fileType);
+            expected.Add(Path + folderA + "\\dailymirrornfl." + fileType);
+            expected.Add(Path + folderA + "\\sunsportsboxing." + fileType);
 
             // act
             FileAdapter fa = new TextFile(fileType);
@@ -68,7 +68,7 @@ namespace Test
         [TestMethod]
         public void TestGetFilePathA()
         {
-            string Path = System.IO.Path.GetFullPath(@"..\..\..\res\");
+            string Path = System.IO.Path.GetFullPath(@"..\..\..\..\res\");
             // arrange
             string folderA = "ClassA";
             string fileType = "txt";

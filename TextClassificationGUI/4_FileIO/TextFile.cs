@@ -5,10 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TextClassification.Foundation;
+using TextClassificationGUI.Foundation;
 using System.Diagnostics;
 
-namespace TextClassification.FileIO
+namespace TextClassificationGUI.FileIO
 {
     public class TextFile:FileAdapter
     {
