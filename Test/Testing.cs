@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using TextClassification.Controller;
 using TextClassification.Domain;
 using TextClassification.FileIO;
@@ -32,7 +33,7 @@ namespace Test
             // deprecated - use 
             // arrange
             string expected = "Suduko";
-            string path = "c:\\users\\tha\\documents\\Suduko.txt";
+            string path = "c:\\users\\allan\\documents\\Suduko.txt";
 
             // act
             string actual = StringOperations.getFileName(path);
@@ -48,9 +49,11 @@ namespace Test
             string folderA = "ClassA";
             string fileType = "txt";
             List<string> expected = new List<string>();
-            expected.Add("C:\\Users\\win\\source\\repos\\D21-Assignment2930\\TextClassification\\bin\\Debug\\" + folderA+"\\bbcsportsfootball."+fileType);
-            expected.Add("C:\\Users\\win\\source\\repos\\D21-Assignment2930\\TextClassification\\bin\\Debug\\"+folderA+"\\dailymirrornfl."+fileType);
-            expected.Add("C:\\Users\\win\\source\\repos\\D21-Assignment2930\\TextClassification\\bin\\Debug\\" + folderA+"\\sunsportsboxing."+fileType);
+            string Path = System.IO.Path.GetFullPath(@"..\..\..\res\");
+
+            expected.Add(Path + folderA+"\\bbcsportsfootball."+fileType);
+            expected.Add(Path + folderA+"\\dailymirrornfl."+fileType);
+            expected.Add(Path + folderA+"\\sunsportsboxing."+fileType);
 
             // act
             FileAdapter fa = new TextFile(fileType);
@@ -65,11 +68,12 @@ namespace Test
         [TestMethod]
         public void TestGetFilePathA()
         {
+            string Path = System.IO.Path.GetFullPath(@"..\..\..\res\");
             // arrange
             string folderA = "ClassA";
             string fileType = "txt";
             string fileName = "filnavn";
-            string expected = "C:\\Users\\win\\source\\repos\\D21-Assignment2930\\TextClassification\\bin\\Debug\\" + folderA + "\\filnavn." + fileType;
+            string expected = Path + folderA + "\\filnavn." + fileType;
 
             // act
             TextFile tf = new TextFile(fileType);
