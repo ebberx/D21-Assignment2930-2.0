@@ -83,6 +83,18 @@ namespace Test
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void TestGetFileName()
+        {
+            string BasePath = System.IO.Path.GetFullPath(@"..\..\..\res\");
+            string path = BasePath + "ClassB\\Snow White.txt";
+
+            string expected = "Snow White";
+            string actual = StringOperations.getFileName(path);
+
+            Assert.AreEqual(expected, actual);
+        }
+
 
     }
 }

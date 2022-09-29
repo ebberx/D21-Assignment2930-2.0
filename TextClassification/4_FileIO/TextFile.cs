@@ -21,7 +21,7 @@ namespace TextClassification.FileIO
         const string FOLDERB = "ClassB";
         public TextFile(string fileType):base(fileType)
         {
-            Console.WriteLine(PROJECTPATH);
+          
         }
         public override List<string> GetAllFileNames(string folderName)
         {
