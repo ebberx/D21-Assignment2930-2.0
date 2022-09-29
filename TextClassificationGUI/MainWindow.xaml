@@ -8,13 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TabControl>
-            <TabItem Header="TabItem">
+            <TabItem Header="Trainig Time">
                 <Grid Background="#FFE5E5E5">
                     <Button Content="Train" HorizontalAlignment="Left" Margin="25,33,0,0" VerticalAlignment="Top" Click="Button_Click"/>
                     <TextBox x:Name="trainTimeTextBox" Text="Time: " TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="119,35,555,0"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="File names">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
@@ -24,20 +24,39 @@
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="7*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    
+
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="ClassA" HorizontalAlignment="Center"></TextBlock>
                     <TextBlock Grid.Row="0" Grid.Column="1" Text="ClassB" HorizontalAlignment="Center"></TextBlock>
 
-                    <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=ObservableA}" d:DataContext="{d:DesignInstance}"></ListBox>
-                    <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=ObservableB}" d:DataContext="{d:DesignInstance}"></ListBox>
+                    <ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=ObservableA}"></ListBox>
+                    <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=ObservableB}"></ListBox>
 
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Num. of tokens">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="7*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock  Grid.Row="0" Grid.Column="0" Text="File name" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Token count" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Path=ObservableAB}"/>
+                    <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Path=ObservableTokens}"/>
+                </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Dictionary">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ListBox Grid.Column="1" ItemsSource="{Binding Path=ObservableDictionaryList}"/>
+                </Grid>
+
             </TabItem>
         </TabControl>
     </Grid>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TextClassificationGUI.Business;
 using TextClassificationGUI.Domain;
 using TextClassificationGUI.FileIO;
+using TextClassificationGUI.Foundation;
 
 namespace TextClassificationGUI.Controller
 {
@@ -73,7 +74,40 @@ namespace TextClassificationGUI.Controller
                 }
             }
         }
-       
+
+        public int GetTokenCount(string foldername, string filename)
+        {
+            List<string> list = new List<string>();
+            int index;
+            string text;
+            switch (foldername)
+            {
+                case "ClassA":
+                    list = _fileLists.GetA().Select(StringOperations.getFileName).ToList();
+                    index = list.IndexOf(filename);
+                    text = _fileAdapter.GetAllTextFromFileA(list[index] + ".txt");
+                    return Tokenization.Tokenize(text).Count;
+                    
+                case "ClassB":
+                    list = _fileLists.GetB().Select(StringOperations.getFileName).ToList();
+                    index = list.IndexOf(filename);
+                    text = _fileAdapter.GetAllTextFromFileA(list[index] + ".txt");
+                    return Tokenization.Tokenize(text).Count;
+
+                default:
+                    break;
+            }
+            return 0;
+
+            // Get the index of the filename inside list
+
+        }
+
+        
+
+
+
+
 
         public override void BuildBagOfWords()
         {

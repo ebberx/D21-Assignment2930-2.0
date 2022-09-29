@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,10 @@ namespace TextClassificationGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        KnowledgeBuilder nb;
+        Knowledge knowledge;
+        BagOfWords bof;
+        List<string> entries;
         private ObservableData _observableData = new ObservableData();
         public MainWindow()
         {
@@ -35,10 +40,16 @@ namespace TextClassificationGUI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             long t1 = TimeUtils.GetNanoseconds();
-            KnowledgeBuilder nb = new KnowledgeBuilder();
+            nb = new KnowledgeBuilder();
             nb.Train();
             long duration = TimeUtils.GetNanoseconds() - t1;
             trainTimeTextBox.Text = "Time: " + (duration / 1000 / 1000) + "ms";
+
+            knowledge = nb.GetKnowledge();
+            bof = knowledge.GetBagOfWords();
+            entries = bof.GetEntriesInDictionary();
+            _observableData.ObservableDictionaryList = new ObservableCollection<string>(entries);
+
         }
     }
 }
